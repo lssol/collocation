@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/foundation/css/foundation.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="header text-center">
+    <h1>Easy Colloc</h1>
+  </div>
+
+  <div ng-app="angularjs-starter" ng-controller="MainCtrl">
+    <fieldset >
+      <div class="row">
+        <div class="column small-2"><p></p></div>
+        <div class="column small-2 end" c ng-repeat="user in users"><h2 class="subheader text-center">{{user}}</h2></div>
+      </div>
+      <div class="row" data-ng-repeat="item in items">
+        <div class="column small-2 text-center">
+          <input type="number" step="any"  ng-model="item.price" name="{{$index}}" ng-change="calculate()" ng-model-options="{ debounce: 250 }" name="" placeholder="Price of the item" change-focus>
+        </div>
+
+        <div class="column small-2 switch large text-center end" ng-repeat="user in users">
+          <input class="switch-input"  ng-model="item.users[user]" ng-change="calculate()" id="{{user}}-{{item.id}}" type="checkbox" name="" ng-init="item.users[user]=true">
+          <label class="switch-paddle" for="{{user}}-{{item.id}}">
+            <span class="switch-active" aria-hidden="true">Yes</span>
+            <span class="switch-inactive" aria-hidden="true">No</span>
+          </label>
+        </div>
+
+        <!--<div class="column small-2 text-right">-->
+          <!--<p><button class="tiny button alert" ng-show="$last" ng-click="removeChoice()" >-</button></p>-->
+        <!--</div>-->
+      </div>
+      <div class="row">
+        <div class="column small-2">
+          <button class="small button" type="button" ng-click="addNewChoice()">Add fields</button>
+        </div>
+      </div>
+    </fieldset>
+    <div class="total">
+      <div class="row">
+        <div class="column small-2"><p class="totalPrice">{{totalPrice | deuxiemeDecimal}}</p></div>
+        <div class="column small-2 end" ng-repeat="(name, toPay) in payTable"><p class="lead text-center graph" ng-style="calculateHeight(toPay)">{{toPay | deuxiemeDecimal}}</p></div>
+      </div>
+      <div class="row">
+        <div class="column small-2"><p></p></div>
+        <div class="column small-2 end" ng-repeat="user in users"><p class="lead text-center">{{user}}</p></div>
+      </div>
+    </div>
+    <!--<div id="choicesDisplay">-->
+      <!--<p>{{ items | json}}</p>-->
+      <!--<p>{{payTable | json}}</p>-->
+      <!--<p>{{message | json}}</p>-->
+    <!--</div>-->
+  </div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

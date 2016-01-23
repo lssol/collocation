@@ -1,0 +1,31 @@
+/* app css stylesheet */
+
+.header{
+    height:700px;
+    padding-top:600px;
+    background-color: #2199e8;
+    background-image:url("banner.jpg");
+    vertical-align: bottom;
+}
+.header h1{
+    color:white;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size:400%;
+}
+fieldset{
+    border:none;
+}
+.graph{
+    background-color: #2199e8;
+    color:white;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+.totalPrice{
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size:150%;
+    color:#ec5840;
+}
+.total{
+    background-color:#e6e6e6;
+    padding-top:25px;
+}
